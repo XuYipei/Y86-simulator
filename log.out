@@ -1,0 +1,132 @@
+Clock = 1
+Fetch:
+Pred_PC = 0
+Decode:
+state = SAOK ; Instr = nop ; rA = RNONE ; rB = RNONE ; 
+valC = 0 ; valP = 0 ; 
+Excute:
+state = SAOK ; Instr = nop ; dstE = RNONE ; dstM = RNONE ; srcA = RNONE ; srcB = RNONE ; 
+valA = 0 ; valB = 0 ; valC = 0 ; 
+OF = 0 ; ZF = 1 ; SF = 0 ; 
+Memory:
+state = SAOK ; Instr = nop ; dstE = RNONE ; dstM = RNONE ; 
+valA = 0 ; valE = 0 ; Cnd = False ; 
+Write_Back:
+state = SAOK ; Instr = nop ; dstE = RNONE ; dstM = RNONE ; 
+valE = 0 ; valM = 0 ; 
+RAX = 0 ; RCX = 0 ; RDX = 0 ; 
+RBX = 0 ; RSP = 0 ; RBP = 0 ; 
+RSI = 0 ; RDI = 0 ; R8 = 0 ; 
+R9 = 0 ; R10 = 0 ; R11 = 0 ; 
+R12 = 0 ; R13 = 0 ; R14 = 0 ; 
+
+Clock = 2
+Fetch:
+Pred_PC = A
+Decode:
+state = SAOK ; Instr = irmovq ; rA = RNONE ; rB = RSP ; 
+valC = 200 ; valP = A ; 
+Excute:
+state = SAOK ; Instr = nop ; dstE = RNONE ; dstM = RNONE ; srcA = RNONE ; srcB = RNONE ; 
+valA = 0 ; valB = 0 ; valC = 0 ; 
+OF = 0 ; ZF = 1 ; SF = 0 ; 
+Memory:
+state = SAOK ; Instr = nop ; dstE = RNONE ; dstM = RNONE ; 
+valA = 0 ; valE = 0 ; Cnd = True ; 
+Write_Back:
+state = SAOK ; Instr = nop ; dstE = RNONE ; dstM = RNONE ; 
+valE = 0 ; valM = 0 ; 
+RAX = 0 ; RCX = 0 ; RDX = 0 ; 
+RBX = 0 ; RSP = 0 ; RBP = 0 ; 
+RSI = 0 ; RDI = 0 ; R8 = 0 ; 
+R9 = 0 ; R10 = 0 ; R11 = 0 ; 
+R12 = 0 ; R13 = 0 ; R14 = 0 ; 
+
+Clock = 3
+Fetch:
+Pred_PC = 38
+Decode:
+state = SAOK ; Instr = call ; rA = RNONE ; rB = RNONE ; 
+valC = 38 ; valP = 13 ; 
+Excute:
+state = SAOK ; Instr = irmovq ; dstE = RSP ; dstM = RNONE ; srcA = RNONE ; srcB = RNONE ; 
+valA = 0 ; valB = 0 ; valC = 200 ; 
+OF = 0 ; ZF = 1 ; SF = 0 ; 
+Memory:
+state = SAOK ; Instr = nop ; dstE = RNONE ; dstM = RNONE ; 
+valA = 0 ; valE = 0 ; Cnd = True ; 
+Write_Back:
+state = SAOK ; Instr = nop ; dstE = RNONE ; dstM = RNONE ; 
+valE = 0 ; valM = 0 ; 
+RAX = 0 ; RCX = 0 ; RDX = 0 ; 
+RBX = 0 ; RSP = 0 ; RBP = 0 ; 
+RSI = 0 ; RDI = 0 ; R8 = 0 ; 
+R9 = 0 ; R10 = 0 ; R11 = 0 ; 
+R12 = 0 ; R13 = 0 ; R14 = 0 ; 
+
+Clock = 4
+Fetch:
+Pred_PC = 42
+Decode:
+state = SAOK ; Instr = irmovq ; rA = RNONE ; rB = RDI ; 
+valC = 18 ; valP = 42 ; 
+Excute:
+state = SAOK ; Instr = call ; dstE = RSP ; dstM = RNONE ; srcA = RNONE ; srcB = RSP ; 
+valA = 13 ; valB = 200 ; valC = 38 ; 
+OF = 0 ; ZF = 1 ; SF = 0 ; 
+Memory:
+state = SAOK ; Instr = irmovq ; dstE = RSP ; dstM = RNONE ; 
+valA = 0 ; valE = 200 ; Cnd = True ; 
+Write_Back:
+state = SAOK ; Instr = nop ; dstE = RNONE ; dstM = RNONE ; 
+valE = 0 ; valM = 0 ; 
+RAX = 0 ; RCX = 0 ; RDX = 0 ; 
+RBX = 0 ; RSP = 0 ; RBP = 0 ; 
+RSI = 0 ; RDI = 0 ; R8 = 0 ; 
+R9 = 0 ; R10 = 0 ; R11 = 0 ; 
+R12 = 0 ; R13 = 0 ; R14 = 0 ; 
+
+Clock = 5
+Fetch:
+Pred_PC = 4C
+Decode:
+state = SAOK ; Instr = irmovq ; rA = RNONE ; rB = RSI ; 
+valC = 4 ; valP = 4C ; 
+Excute:
+state = SAOK ; Instr = irmovq ; dstE = RDI ; dstM = RNONE ; srcA = RNONE ; srcB = RNONE ; 
+valA = 0 ; valB = 0 ; valC = 18 ; 
+OF = 0 ; ZF = 1 ; SF = 0 ; 
+Memory:
+state = SAOK ; Instr = call ; dstE = RSP ; dstM = RNONE ; 
+valA = 13 ; valE = 1F8 ; Cnd = True ; 
+Write_Back:
+state = SAOK ; Instr = irmovq ; dstE = RSP ; dstM = RNONE ; 
+valE = 200 ; valM = 0 ; 
+RAX = 0 ; RCX = 0 ; RDX = 0 ; 
+RBX = 0 ; RSP = 200 ; RBP = 0 ; 
+RSI = 0 ; RDI = 0 ; R8 = 0 ; 
+R9 = 0 ; R10 = 0 ; R11 = 0 ; 
+R12 = 0 ; R13 = 0 ; R14 = 0 ; 
+
+Clock = 6
+Fetch:
+Pred_PC = 56
+Decode:
+state = SAOK ; Instr = call ; rA = RNONE ; rB = RNONE ; 
+valC = 56 ; valP = 55 ; 
+Excute:
+state = SAOK ; Instr = irmovq ; dstE = RSI ; dstM = RNONE ; srcA = RNONE ; srcB = RNONE ; 
+valA = 0 ; valB = 0 ; valC = 4 ; 
+OF = 0 ; ZF = 1 ; SF = 0 ; 
+Memory:
+state = SAOK ; Instr = irmovq ; dstE = RDI ; dstM = RNONE ; 
+valA = 0 ; valE = 18 ; Cnd = True ; 
+Write_Back:
+state = SAOK ; Instr = call ; dstE = RSP ; dstM = RNONE ; 
+valE = 1F8 ; valM = 0 ; 
+RAX = 0 ; RCX = 0 ; RDX = 0 ; 
+RBX = 0 ; RSP = 1F8 ; RBP = 0 ; 
+RSI = 0 ; RDI = 0 ; R8 = 0 ; 
+R9 = 0 ; R10 = 0 ; R11 = 0 ; 
+R12 = 0 ; R13 = 0 ; R14 = 0 ; 
+
